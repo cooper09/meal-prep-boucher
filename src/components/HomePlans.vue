@@ -27,7 +27,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="green" @click="showRecipes('keto')" data-cy="plansKetoBtn">
+                        <v-btn outline block color="blue" @click="showRecipes('keto')" data-cy="plansKetoBtn">
                             Boucher Conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -56,7 +56,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="green" @click="showRecipes('paleo')" data-cy="plansPaleoBtn">
+                        <v-btn outline block color="blue" @click="showRecipes('paleo')" data-cy="plansPaleoBtn">
                             Facebook Conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -85,7 +85,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="green" @click="showRecipes('vegan')" data-cy="plansVeganBtn">
+                        <v-btn outline block color="blue" @click="showRecipes('vegan')" data-cy="plansVeganBtn">
                             Google conversions</v-btn>
                     </v-card-actions>
                 </v-card>
