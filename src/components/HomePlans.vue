@@ -27,7 +27,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="blue" @click="showRecipes('keto')" data-cy="plansKetoBtn">
+                        <v-btn outline block color="blue" @click="showConversions('boucher')" data-cy="plansKetoBtn">
                             Boucher Conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -56,7 +56,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="blue" @click="showRecipes('paleo')" data-cy="plansPaleoBtn">
+                        <v-btn outline block color="blue" @click="showConversions('facebook')" data-cy="plansPaleoBtn">
                             Facebook Conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -85,6 +85,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
+                    <!--    <v-btn outline block color="blue" @click="showConversions('google')" data-cy="plansVeganBtn"> -->
                         <v-btn outline block color="blue" @click="showRecipes('vegan')" data-cy="plansVeganBtn">
                             Google conversions</v-btn>
                     </v-card-actions>
@@ -101,9 +102,13 @@ export default {
     methods: {
         showRecipes(plan) {
             this.$store.dispatch('getRecipes', plan);
+        },
+        showConversions(plan) {
+            this.$store.dispatch('getConversions', plan);
+            alert("Show Boucher Conversions: " + plan );
         }
-    }
-};
+    }//end methods
+}//end export
 </script>
 
 <style scoped>
