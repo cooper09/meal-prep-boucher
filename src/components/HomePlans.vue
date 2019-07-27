@@ -86,7 +86,7 @@
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
                     <!--    <v-btn outline block color="blue" @click="showConversions('google')" data-cy="plansVeganBtn"> -->
-                        <v-btn outline block color="blue" @click="showRecipes('vegan')" data-cy="plansVeganBtn">
+                        <v-btn outline block color="blue" @click="showConversions('facebook')" data-cy="plansVeganBtn">
                             Google conversions</v-btn>
                     </v-card-actions>
                 </v-card>
