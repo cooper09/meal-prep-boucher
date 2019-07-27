@@ -1,6 +1,6 @@
 <template>
     <span>
-        <v-navigation-drawer app v-model="drawer" class="brown lighten-2" dark disable-resize-watcher>
+        <v-navigation-drawer app v-model="drawer" class="blue accent-2" dark disable-resize-watcher>
             <v-list>
                 <template v-for="(item, index) in items">
                     <v-list-tile :key="index">
@@ -12,7 +12,7 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app color="brown darken-4" dark>
+        <v-toolbar app color="blue accent-3" dark>
             <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
             <router-link to="/">
@@ -22,7 +22,7 @@
             <v-spacer class="hidden-sm-and-down"></v-spacer>
             <div v-if="!isAuthenticated" class="hidden-sm-and-down">
                 <v-btn flat to="/sign-in" data-cy="signinBtn">SIGN IN</v-btn>
-                <v-btn color="brown lighten-3" to="/join" class="nav-join" data-cy="joinBtn">JOIN</v-btn>
+                <v-btn color="blue accent-4" to="/join" class="nav-join" data-cy="joinBtn">JOIN</v-btn>
             </div>
             <div v-else>
                 <v-btn flat to="/about">PROFILE</v-btn>
@@ -37,7 +37,7 @@ export default {
     name: 'AppNavigation',
     data() {
         return {
-            appTitle: 'Meal Prep',
+            appTitle: 'Boucher+Co Conversion Reporting',
             drawer: false,
             items: [
                 { title: 'Menu' },
