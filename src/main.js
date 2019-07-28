@@ -4,7 +4,10 @@ import './plugins/vuetify';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import '@/firebase/';
+//import '@/firebase/';
+import firebase from 'firebase/app';
+import 'firebase/app';
+import 'firebase/firestore';
 
 Vue.config.productionTip = false;
 

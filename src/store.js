@@ -10,9 +10,13 @@ export default new Vuex.Store({
     state: {
         recipes: [],
         apiUrl: 'https://api.edamam.com/search',
-        user: null,
+        campaignsUrl: 'https://sleepy-everglades-99189.herokuapp.com/sales',
+        conversionsUrl:
+            'https://sleepy-everglades-99189.herokuapp.com/conversions',
         isAuthenticated: false,
-        userRecipes: []
+        userRecipes: [],
+        campaigns:  [],
+        conversions: []
     },
     mutations: {
         setRecipes(state, payload) {
@@ -26,7 +30,15 @@ export default new Vuex.Store({
         },
         setUserRecipes(state, payload) {
             state.userRecipes = payload;
-        }
+        },
+        setCampaigns(state, payload) {
+            //alert('store - setCampaigns: ' + payload);
+            state.campaigns = payload;
+        }, //end set Campaigns
+        setConversions(state, payload) {
+            //alert('store - setConversions: ' + payload);
+            state.conversions = payload;
+        } //end set Campaigns
     },
     actions: {
         async getRecipes({ state, commit }, plan) {
@@ -114,8 +126,28 @@ export default new Vuex.Store({
                 .once('value', snapshot => {
                     commit('setUserRecipes', snapshot.val());
                 });
+        },//end getUserRecipes
+        async getCampaigns({ state, commit }) {
+            //alert("store - getCampaigns:  "+ plan )
+            try {
+                let response = await axios.get(`${state.campaignsUrl}`);
+                commit('setCampaigns', response.data);
+            } catch (error) {
+                //commit('setCampaigns', \[\]);
+                alert('Campaigns error: ' + error);
+            }
+        },
+        async getConversions({ state, commit }) {
+            //alert("store - getConversions:  "+ plan )
+            try {
+                let response = await axios.get(`${state.conversionsUrl}`);
+                commit('setConversions', response.data);
+            } catch (error) {
+                //commit('setCampaigns', \[\]);
+                alert('Conversions error: ' + error);
+            }
         }
-    },
+    },//end actions
     getters: {
         isAuthenticated(state) {
             return state.user !== null && state.user !== undefined;
