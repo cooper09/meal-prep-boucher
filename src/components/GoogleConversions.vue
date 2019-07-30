@@ -9,9 +9,10 @@
                     </v-responsive>
 
                     <v-card-text>
+                        Google Conversions {{g_confirmed}}
                         <div class="title my-5">{{conversion.timestamp}}</div>
 
-                        <div class="subheading">Conversions</div>
+                        <div class="subheading">Conversions {{g_confirmed}}</div>
                         <ul>
                             <li v-for="(conversion, i) in conversions" :key="i">{{conversion.product}}</li>
                         </ul>
@@ -35,6 +36,9 @@ export default {
         },
         conversions() {
             return this.$store.state.conversions;
+        },
+        g_confirmed(){
+            return this.$store.state.g_confirmed;
         },
         isAuthenticated() {
             return this.$store.getters.isAuthenticated;

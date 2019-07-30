@@ -15,8 +15,11 @@ export default new Vuex.Store({
             'https://sleepy-everglades-99189.herokuapp.com/conversions',
         isAuthenticated: false,
         userRecipes: [],
-        campaigns:  [],
-        conversions: []
+        campaigns: [],
+        conversions: [],
+        b_confirmed: 0,
+        f_confirmed: 0,
+        g_confirmed: 0
     },
     mutations: {
         setRecipes(state, payload) {
@@ -126,7 +129,7 @@ export default new Vuex.Store({
                 .once('value', snapshot => {
                     commit('setUserRecipes', snapshot.val());
                 });
-        },//end getUserRecipes
+        }, //end getUserRecipes
         async getCampaigns({ state, commit }) {
             //alert("store - getCampaigns:  "+ plan )
             try {
@@ -146,11 +149,21 @@ export default new Vuex.Store({
                 //commit('setCampaigns', \[\]);
                 alert('Conversions error: ' + error);
             }
+        },
+        checkConversions({commit},plan) {
+            alert('checkConversions - Action: ' + plan );
+            commit('checkConversions', plan);
         }
-    },//end actions
+    }, //end actions
     getters: {
         isAuthenticated(state) {
             return state.user !== null && state.user !== undefined;
+        },
+        ourCampaigns(state) {
+            return state.campaigns;
+        },
+        ourConversions(state) {
+            return state.conversions;
         }
-    }
+    }//end getters
 });

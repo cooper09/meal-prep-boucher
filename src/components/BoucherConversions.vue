@@ -12,12 +12,12 @@
                         Boucher
                         <div class="title my-5">{{conversion.timestamp}}</div>
 
-                        <div class="subheading">Conversions</div>
+                        <div class="subheading">Conversions {{confirmed}}</div>
                         <ul>
                             <li v-for="(conversion, i) in conversions" :key="i">{{conversion.product}}</li>
                         </ul>
                     </v-card-text>
-
+                    <confirmed></confirmed>
                     <v-card-actions>
                         <v-btn color="blue" dark @click="orderRecipe(item)">Chart</v-btn>
                     </v-card-actions>
@@ -28,14 +28,21 @@
 </template>
 
 <script>
+import Confirmed from '@/components/Confirmed';
 export default {
     name: 'BoucherConversions',
+    components: {
+        Confirmed
+    },
     computed: {
         recipes() {
             return this.$store.state.recipes;
         },
         conversions() {
             return this.$store.state.conversions;
+        },
+        confirmed(){
+            return this.$store.state.b_confirmed;
         },
         isAuthenticated() {
             return this.$store.getters.isAuthenticated;
@@ -49,8 +56,8 @@ export default {
                 this.$router.push('/sign-in');
             }
         }
-    }
-};
+    } //end methods
+}; //end export default
 </script>
 
 <style scoped>

@@ -27,7 +27,7 @@
                     </v-card-text>
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
-                        <v-btn outline block color="blue" @click="showConversions('boucher')" data-cy="plansKetoBtn">
+                        <v-btn outline block color="blue" @click="checkConversions('boucher')" data-cy="plansKetoBtn">
                             Boucher Conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -86,7 +86,7 @@
 
                     <v-card-actions v-if="['menu'].includes($route.name)">
                     <!--    <v-btn outline block color="blue" @click="showConversions('google')" data-cy="plansVeganBtn"> -->
-                        <v-btn outline block color="blue" @click="showConversions('facebook')" data-cy="plansVeganBtn">
+                        <v-btn outline block color="blue" @click="checkConversions('google')" data-cy="plansVeganBtn">
                             Google conversions</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -97,18 +97,54 @@
 </template>
 
 <script>
+//const test =require( './mylib')
+import helpers from '@/components/mylib'
 export default {
     name: 'HomePlans',
+   ccomputed: {
+        conversions() {
+            return this.$store.state.conversions;
+        },
+        campaigns(){
+             return this.$store.state.campaigns;
+        },
+        isAuthenticated() {
+            return this.$store.getters.isAuthenticated;
+        }
+    },
     methods: {
         showRecipes(plan) {
             this.$store.dispatch('getRecipes', plan);
         },
         showConversions(plan) {
             this.$store.dispatch('getConversions', plan);
-            alert("Show Boucher Conversions: " + plan );
+            alert('Show Boucher Conversions: ' + plan);
+        },
+        checkConversions(plan) {
+            // cooper s - when I want to update the store...
+            var campaigns = this.$store.getters.ourCampaigns;
+            var conversions = this.$store.getters.ourConversions;
+            //alert('Homeplan - Check Boucher Conversions: ' + campaigns);
+            switch(plan) {
+                case 'boucher':
+                     alert("Show boucher conversions")
+                    var conversions = helpers.within7days(campaigns, conversions)
+                    this.$store.state.b_confirmed = conversions;
+                break;
+                case 'facebook':
+                    alert("Show facebook conversions")
+                break;
+                case 'google':
+                     alert("Show google conversions, bud")
+                    var startDate = "Tue Jul 23 2019 12:27:29 GMT-0400 (Eastern Daylight Time)"
+                    var conversions = helpers.googleData(startDate);
+                    this.$store.state.g_confirmed = conversions;
+                break;
+            }//end switch
+
         }
-    }//end methods
-}//end export
+    } //end methods
+}; //end export
 </script>
 
 <style scoped>
