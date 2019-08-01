@@ -97,8 +97,10 @@
 </template>
 
 <script>
-//const test =require( './mylib')
-import helpers from '@/components/mylib'
+// cooper s - external "helper" files will handle modular transactions and goodies
+import boucherConversions from '@/helpers/boucherConversions'
+import googleConversions from '@/helpers/googleConversions'
+
 export default {
     name: 'HomePlans',
    ccomputed: {
@@ -118,7 +120,7 @@ export default {
         },
         showConversions(plan) {
             this.$store.dispatch('getConversions', plan);
-            alert('Show Boucher Conversions: ' + plan);
+            //alert('Show Boucher Conversions: ' + plan);
         },
         checkConversions(plan) {
             // cooper s - when I want to update the store...
@@ -127,17 +129,17 @@ export default {
             //alert('Homeplan - Check Boucher Conversions: ' + campaigns);
             switch(plan) {
                 case 'boucher':
-                     alert("Show boucher conversions")
-                    var conversions = helpers.within7days(campaigns, conversions)
+                     alert("Homeplans - Show boucher conversions")
+                    var conversions = boucherConversions.within7days(campaigns, conversions)
                     this.$store.state.b_confirmed = conversions;
                 break;
                 case 'facebook':
-                    alert("Show facebook conversions")
+                    alert("Homeplans - Show facebook conversions")
                 break;
                 case 'google':
-                     alert("Show google conversions, bud")
+                    alert("Homeplans - Show google conversions")
                     var startDate = "Tue Jul 23 2019 12:27:29 GMT-0400 (Eastern Daylight Time)"
-                    var conversions = helpers.googleData(startDate);
+                    var conversions = googleConversions.googleData(startDate);
                     this.$store.state.g_confirmed = conversions;
                 break;
             }//end switch
