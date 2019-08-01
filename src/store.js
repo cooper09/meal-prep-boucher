@@ -19,7 +19,8 @@ export default new Vuex.Store({
         conversions: [],
         b_confirmed: 0,
         f_confirmed: 0,
-        g_confirmed: 0
+        g_confirmed: 0,
+        date: new Date()
     },
     mutations: {
         setRecipes(state, payload) {

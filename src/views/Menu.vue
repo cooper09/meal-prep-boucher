@@ -1,7 +1,8 @@
-<template>
+<<template>
     <div>
         <home-plans></home-plans>
-        <kalendar></kalendar>
+
+        <date-picker>Total</date-picker> 
         <boucher-conversions></boucher-conversions>
         <google-conversions>Google</google-conversions>
     </div>
@@ -9,7 +10,7 @@
 
 <script>
 import HomePlans from '@/components/HomePlans';
-import Kalendar from '@/components/Kalendar'
+import DatePicker from '@/components/DatePicker';
 import BoucherConversions from '@/components/BoucherConversions';
 import GoogleConversions from '@/components/GoogleConversions';
 
@@ -17,11 +18,25 @@ export default {
     name: 'Menu',
     components: {
         HomePlans,
-        Kalendar,
+        DatePicker,
         BoucherConversions,
         GoogleConversions
-    }
-};
+    },
+    computed:{
+        recipes() {
+            return this.$store.state.recipes;
+        },
+        date() {
+            return this.$store.state.date
+        }
+    },
+    created() {
+    this.property = 'Example property update.'
+    alert("Created....");
+    
+
+  }
+};//end scripts
 </script>
 
 <style scoped>
