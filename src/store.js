@@ -16,7 +16,8 @@ export default new Vuex.Store({
         isAuthenticated: false,
         userRecipes: [],
         campaigns:  [],
-        conversions: []
+        conversions: [],
+        date: new Date()
     },
     mutations: {
         setRecipes(state, payload) {
