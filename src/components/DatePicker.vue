@@ -29,7 +29,7 @@ export default {
     },//end compute
     methods: {
         onChange(menu){
-            alert("DatePicker onChange: " + menu )
+            //alert("DatePicker onChange: " + menu )
             switch (menu) {
                 case 'start':
                     this.$store.dispatch('setStartDate', this.start )

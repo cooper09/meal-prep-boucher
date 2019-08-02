@@ -10,6 +10,7 @@
 
                     <v-card-text>
                         Boucher
+                        <div class="subheading">Start Date: {{startdate}}</div><div class="subheading">End Date: {{enddate}}</div>
                         <div class="title my-5">{{conversion.timestamp}}</div>
 
                         <div class="subheading">Conversions {{confirmed}}</div>
@@ -62,7 +63,9 @@ export default {
                 this.$router.push('/sign-in');
             }
         }
-    } //end methods
+    }, //end methods
+    cleared() {
+    }
 }; //end export default
 </script>
 

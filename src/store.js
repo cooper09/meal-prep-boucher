@@ -157,7 +157,7 @@ export default new Vuex.Store({
             commit('checkConversions', plan);
         },
         setStartDate({state}, date) {
-            alert('Store - Set Date: '+ date )
+            //alert('Store - Set Date: '+ date )
             state.startdate = date;
         }
     }, //end actions

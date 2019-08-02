@@ -135,7 +135,7 @@ export default {
             //alert('Homeplan - Check Boucher Conversions: ' + campaigns);
             switch(plan) {
                 case 'boucher':
-                     alert("Homeplans - Show boucher conversions: " + this.startdate )
+                     alert("Homeplans - Show boucher conversions: "  )
                     var conversions = boucherConversions.within7days(campaigns, conversions)
                     this.$store.state.b_confirmed = conversions;
                 break;
@@ -143,7 +143,7 @@ export default {
                     alert("Homeplans - Show facebook conversions")
                 break;
                 case 'google':
-                    alert("Homeplans - Show google conversions")
+                    //alert("Homeplans - Show google conversions")
                     var startDate = "Tue Jul 23 2019 12:27:29 GMT-0400 (Eastern Daylight Time)"
                     var conversions = googleConversions.googleData(startDate);
                     this.$store.state.g_confirmed = conversions;

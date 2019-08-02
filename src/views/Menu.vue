@@ -22,6 +22,8 @@ export default {
         GoogleConversions
     },
     computed:{
+
+        //cooper s - I don't think I need either of these
         recipes() {
             return this.$store.state.recipes;
         },
