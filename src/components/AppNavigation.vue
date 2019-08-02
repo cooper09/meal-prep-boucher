@@ -43,7 +43,8 @@ export default {
                 { title: 'Menu' },
                 { title: 'Profile' },
                 { title: 'Sign In' },
-                { title: 'Join' }
+                { title: 'Join' },
+                { title: 'Chart' }
             ]
         };
     },

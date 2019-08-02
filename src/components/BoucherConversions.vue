@@ -20,7 +20,7 @@
                     </v-card-text>
                     <confirmed></confirmed>
                     <v-card-actions>
-                        <v-btn color="blue" dark @click="orderRecipe(item)">Chart</v-btn>
+                        <v-btn color="blue" dark @click="showChart(item)">Chart</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -62,7 +62,14 @@ export default {
             } else {
                 this.$router.push('/sign-in');
             }
-        }
+        },
+        showChart(item) {
+            if (this.isAuthenticated) {
+                this.$store.dispatch('addRecipe', item);
+            } else {
+                this.$router.push('/chart');
+            }
+        },
     }, //end methods
     cleared() {
     }
