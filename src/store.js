@@ -20,7 +20,8 @@ export default new Vuex.Store({
         b_confirmed: 0,
         f_confirmed: 0,
         g_confirmed: 0,
-        date: new Date()
+        startdate: new Date(),
+        enddate: new Date()
     },
     mutations: {
         setRecipes(state, payload) {
@@ -154,6 +155,10 @@ export default new Vuex.Store({
         checkConversions({commit},plan) {
             alert('checkConversions - Action: ' + plan );
             commit('checkConversions', plan);
+        },
+        setStartDate({state}, date) {
+            alert('Store - Set Date: '+ date )
+            state.startdate = date;
         }
     }, //end actions
     getters: {

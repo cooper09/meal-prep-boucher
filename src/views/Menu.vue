@@ -1,8 +1,7 @@
 <<template>
     <div>
         <home-plans></home-plans>
-
-        <date-picker>Total</date-picker> 
+        <date-picker></date-picker> 
         <boucher-conversions></boucher-conversions>
         <google-conversions>Google</google-conversions>
     </div>
@@ -32,7 +31,6 @@ export default {
     },
     created() {
     this.property = 'Example property update.'
-    alert("Created....");
     
 
   }

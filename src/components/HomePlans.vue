@@ -110,6 +110,12 @@ export default {
         campaigns(){
              return this.$store.state.campaigns;
         },
+        startdate(){
+            return this.$store.state.startdate;
+        },
+        enddate(){
+            return this.$store.state.enddate;
+        },
         isAuthenticated() {
             return this.$store.getters.isAuthenticated;
         }
@@ -129,7 +135,7 @@ export default {
             //alert('Homeplan - Check Boucher Conversions: ' + campaigns);
             switch(plan) {
                 case 'boucher':
-                     alert("Homeplans - Show boucher conversions")
+                     alert("Homeplans - Show boucher conversions: " + this.startdate )
                     var conversions = boucherConversions.within7days(campaigns, conversions)
                     this.$store.state.b_confirmed = conversions;
                 break;

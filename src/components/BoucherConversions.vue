@@ -44,6 +44,12 @@ export default {
         confirmed(){
             return this.$store.state.b_confirmed;
         },
+        startdate(){
+            return this.$store.state.startdate;
+        },
+        enddate(){
+            return this.$store.state.enddate;
+        },
         isAuthenticated() {
             return this.$store.getters.isAuthenticated;
         }
